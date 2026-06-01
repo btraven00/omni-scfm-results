@@ -1,0 +1,45 @@
+{
+  "benchmark": "omni-scfm",
+  "benchmark_repo": "https://github.com/btraven00/omni-scfm",
+  "benchmark_commit": "5b1032ba3ce8b325a7a5f83906592c3621c08a21",
+  "generated": "2026-06-01",
+  "datasets": [
+    "adamson",
+    "norman",
+    "norman_from_scfoundation"
+  ],
+  "methods": [
+    "additive",
+    "cpa",
+    "gears",
+    "lpm_selftrained",
+    "mean"
+  ],
+  "seeds": [
+    1,
+    2
+  ],
+  "n_score_rows": 3732,
+  "files": {
+    "scores.parquet": {
+      "bytes": 100055,
+      "md5": "df551ba6ef052d51c8e044d76708f0d3"
+    },
+    "scatter.parquet": {
+      "bytes": 907480,
+      "md5": "881da1c2721dd09a1c03db1cdaa4576a"
+    },
+    "reference/published_single.csv": {
+      "bytes": 728605,
+      "md5": "9e89a761754fa722d4b9b94d893d15fc"
+    },
+    "reference/published_double.csv": {
+      "bytes": 409027,
+      "md5": "a258efa4cb7830a64af57f3fe662d955"
+    },
+    "reference/gene_centrality.csv": {
+      "bytes": 11112,
+      "md5": "629f4113f03914b5803938b4dfe0fc9d"
+    }
+  }
+}
