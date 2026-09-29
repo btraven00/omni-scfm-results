@@ -1,8 +1,8 @@
 {
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
-  "benchmark_commit": "5b1032ba3ce8b325a7a5f83906592c3621c08a21",
-  "generated": "2026-06-01",
+  "benchmark_commit": "5b4a65117551a01299e4b3b4f8ae1d8194dd3127",
+  "generated": "2026-09-29",
   "datasets": [
     "adamson",
     "norman",
@@ -12,6 +12,7 @@
     "additive",
     "cpa",
     "gears",
+    "geneformer",
     "lpm_selftrained",
     "mean"
   ],
@@ -19,15 +20,53 @@
     1,
     2
   ],
-  "n_score_rows": 3732,
+  "n_score_rows": 4340,
+  "runs": [
+    {
+      "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
+      "benchmark_commit": "5b1032ba3ce8b325a7a5f83906592c3621c08a21",
+      "datasets": [
+        "adamson",
+        "norman",
+        "norman_from_scfoundation"
+      ],
+      "methods": [
+        "additive",
+        "cpa",
+        "gears",
+        "lpm_selftrained",
+        "mean"
+      ],
+      "seeds": [
+        1,
+        2
+      ]
+    },
+    {
+      "run_id": "dcdc296d-443f-4ed9-a616-6d04229f494e",
+      "benchmark_commit": "32d182133b799c2be3bbf59b9573939860340fbf",
+      "datasets": [
+        "adamson",
+        "norman_from_scfoundation"
+      ],
+      "methods": [
+        "geneformer"
+      ],
+      "seeds": [
+        1,
+        2
+      ],
+      "note": "Geneformer (gf-12L-95M-i4096 @ HF 01d3ea89) on an RTX PRO 6000 Blackwell; env geneformer-blackwell = paper geneformer_env with torch 2.7.1+cu128 (2.3.0 has no sm_120 kernels). Adamson matches the paper per perturbation (r>=0.999); norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat)."
+    }
+  ],
   "files": {
     "scores.parquet": {
-      "bytes": 100055,
-      "md5": "df551ba6ef052d51c8e044d76708f0d3"
+      "bytes": 118233,
+      "md5": "1b09a29a48e4d6d1f836b076029edfbf"
     },
     "scatter.parquet": {
-      "bytes": 907480,
-      "md5": "881da1c2721dd09a1c03db1cdaa4576a"
+      "bytes": 1153749,
+      "md5": "137f5e779e0132601447589ff56d4cc6"
     },
     "reference/published_single.csv": {
       "bytes": 728605,

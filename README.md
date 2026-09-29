@@ -44,3 +44,16 @@ From an omni-scfm checkout, after `ob run` + `pixi run collect`:
 python scripts/publish_results.py /path/to/omni-scfm-results
 cd /path/to/omni-scfm-results && git add -A && git commit -m "results: <run>" && git push
 ```
+
+To **add** a run (e.g. one method run on another machine) to what is already published,
+pass the published tables first — later files win on (dataset, seed, method,
+perturbation[, gene]) — and record the run's commit:
+
+```bash
+python scripts/publish_results.py /path/to/omni-scfm-results \
+  --scores /path/to/omni-scfm-results/scores.parquet other/out/scores.parquet \
+  --scatter /path/to/omni-scfm-results/scatter.parquet other/out/scatter.parquet \
+  --run-commit <run_id>=<sha> --run-note "<run_id>=<what was special>"
+```
+
+`manifest.json` → `runs` lists every run in the tables with its benchmark commit.
