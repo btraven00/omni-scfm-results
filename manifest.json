@@ -1,8 +1,8 @@
 {
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
-  "benchmark_commit": "5b4a65117551a01299e4b3b4f8ae1d8194dd3127",
-  "generated": "2026-09-29",
+  "benchmark_commit": "3827794438d331f4b005103a25dbf03a8f62e5de",
+  "generated": "2026-09-30",
   "datasets": [
     "adamson",
     "norman",
@@ -14,13 +14,15 @@
     "gears",
     "geneformer",
     "lpm_selftrained",
-    "mean"
+    "mean",
+    "uce",
+    "uce33"
   ],
   "seeds": [
     1,
     2
   ],
-  "n_score_rows": 4340,
+  "n_score_rows": 5568,
   "runs": [
     {
       "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
@@ -57,16 +59,33 @@
         2
       ],
       "note": "Geneformer (gf-12L-95M-i4096 @ HF 01d3ea89) on an RTX PRO 6000 Blackwell; env geneformer-blackwell = paper geneformer_env with torch 2.7.1+cu128 (2.3.0 has no sm_120 kernels). Adamson matches the paper per perturbation (r>=0.999); norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat)."
+    },
+    {
+      "run_id": "5a79458c-9502-4ba1-a5d1-625ecfccc7ab",
+      "benchmark_commit": "5b4a65117551a01299e4b3b4f8ae1d8194dd3127",
+      "datasets": [
+        "adamson",
+        "norman_from_scfoundation"
+      ],
+      "methods": [
+        "uce",
+        "uce33"
+      ],
+      "seeds": [
+        1,
+        2
+      ],
+      "note": "UCE (uce = 4-layer, uce33 = 33-layer; figshare 24320806 weights) on an RTX PRO 6000 Blackwell, paper uce env; inference batch per OMNI_UCE_BATCH (batch-independent). Adamson matches the paper per perturbation (max |d pearson_delta| < 5e-4, both variants); norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat)."
     }
   ],
   "files": {
     "scores.parquet": {
-      "bytes": 118233,
-      "md5": "1b09a29a48e4d6d1f836b076029edfbf"
+      "bytes": 156549,
+      "md5": "556c666f67cc6094d74e58bcb7eb6f23"
     },
     "scatter.parquet": {
-      "bytes": 1153749,
-      "md5": "137f5e779e0132601447589ff56d4cc6"
+      "bytes": 1531569,
+      "md5": "4fad146792ddfa0ca1a5ac2fb1f8bf3f"
     },
     "reference/published_single.csv": {
       "bytes": 728605,
