@@ -1,8 +1,8 @@
 {
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
-  "benchmark_commit": "3827794438d331f4b005103a25dbf03a8f62e5de",
-  "generated": "2026-09-30",
+  "benchmark_commit": "17a8d4d0b40b61d750dbd1e9395c4e0759456ca9",
+  "generated": "2026-10-01",
   "datasets": [
     "adamson",
     "norman",
@@ -13,6 +13,8 @@
     "cpa",
     "gears",
     "geneformer",
+    "lpm_scFoundationGeneEmb",
+    "lpm_scgptGeneEmb",
     "lpm_selftrained",
     "mean",
     "uce",
@@ -22,7 +24,7 @@
     1,
     2
   ],
-  "n_score_rows": 5568,
+  "n_score_rows": 5896,
   "runs": [
     {
       "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
@@ -76,16 +78,32 @@
         2
       ],
       "note": "UCE (uce = 4-layer, uce33 = 33-layer; figshare 24320806 weights) on an RTX PRO 6000 Blackwell, paper uce env; inference batch per OMNI_UCE_BATCH (batch-independent). Adamson matches the paper per perturbation (max |d pearson_delta| < 5e-4, both variants); norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat)."
+    },
+    {
+      "run_id": "125dd3b6-5971-48ff-bad0-dcc4e7d5882f",
+      "benchmark_commit": "17a8d4d0b40b61d750dbd1e9395c4e0759456ca9",
+      "datasets": [
+        "adamson"
+      ],
+      "methods": [
+        "lpm_scFoundationGeneEmb",
+        "lpm_scgptGeneEmb"
+      ],
+      "seeds": [
+        1,
+        2
+      ],
+      "note": "lpm with G from scGPT (scGPT_human encoder embedding) / scFoundation (models.ckpt pos_emb), built on CPU by make-gene-emb-*; run locally (laptop). Adamson matches the paper per perturbation (source_data single_perturbation_prediction.xlsx Panel C, max |d pearson_delta| < 3e-6). Predicts only genes the embedding covers (paper behaviour)."
     }
   ],
   "files": {
     "scores.parquet": {
-      "bytes": 156549,
-      "md5": "556c666f67cc6094d74e58bcb7eb6f23"
+      "bytes": 166329,
+      "md5": "948da5726cbd66645ae619e3b2be1221"
     },
     "scatter.parquet": {
-      "bytes": 1531569,
-      "md5": "4fad146792ddfa0ca1a5ac2fb1f8bf3f"
+      "bytes": 1705817,
+      "md5": "3b373208d4a780addd2bd597ee1a575a"
     },
     "reference/published_single.csv": {
       "bytes": 728605,
