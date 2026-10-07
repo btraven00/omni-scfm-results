@@ -1,8 +1,8 @@
 {
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
-  "benchmark_commit": "17a8d4d0b40b61d750dbd1e9395c4e0759456ca9",
-  "generated": "2026-10-01",
+  "benchmark_commit": "84afb1e17341f6b9cbaf2e1f41a9bff2d58a3f9d",
+  "generated": "2026-10-07",
   "datasets": [
     "adamson",
     "norman",
@@ -17,6 +17,7 @@
     "lpm_scgptGeneEmb",
     "lpm_selftrained",
     "mean",
+    "scfoundation",
     "uce",
     "uce33"
   ],
@@ -24,7 +25,7 @@
     1,
     2
   ],
-  "n_score_rows": 5896,
+  "n_score_rows": 6121,
   "runs": [
     {
       "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
@@ -94,16 +95,30 @@
         2
       ],
       "note": "lpm with G from scGPT (scGPT_human encoder embedding) / scFoundation (models.ckpt pos_emb), built on CPU by make-gene-emb-*; run locally (laptop). Adamson matches the paper per perturbation (source_data single_perturbation_prediction.xlsx Panel C, max |d pearson_delta| < 3e-6). Predicts only genes the embedding covers (paper behaviour)."
+    },
+    {
+      "run_id": "e8d69fb6-999f-4ac2-951c-f0e403c06905",
+      "benchmark_commit": "10c72b9ac9e6fcf4f098cca5f4e2c46d366084f0",
+      "datasets": [
+        "norman_from_scfoundation"
+      ],
+      "methods": [
+        "scfoundation"
+      ],
+      "seeds": [
+        1
+      ],
+      "note": "scFoundation (forked GEARS 0.0.2 + 0.1B maeautobin encoder, frozen) on an RTX PRO 6000 Blackwell, env scfoundation-blackwell (torch 2.7.1+cu128); paper batch 6 / epochs 5, full per-epoch train-set eval kept. torch's MHA fast path disabled (segfaults in eval under torch 2.7.1; fp-level deviation only). Seed 1 only (~81 h). norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat)."
     }
   ],
   "files": {
     "scores.parquet": {
-      "bytes": 166329,
-      "md5": "948da5726cbd66645ae619e3b2be1221"
+      "bytes": 173181,
+      "md5": "89d53343beb3e5fa4b4dacb07f4c9b00"
     },
     "scatter.parquet": {
-      "bytes": 1705817,
-      "md5": "3b373208d4a780addd2bd597ee1a575a"
+      "bytes": 1755015,
+      "md5": "1e9917b89377a1e4e398e1aa9f049c89"
     },
     "reference/published_single.csv": {
       "bytes": 728605,
