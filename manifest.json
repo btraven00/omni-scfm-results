@@ -1,8 +1,8 @@
 {
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
-  "benchmark_commit": "84afb1e17341f6b9cbaf2e1f41a9bff2d58a3f9d",
-  "generated": "2026-10-07",
+  "benchmark_commit": "10c72b9ac9e6fcf4f098cca5f4e2c46d366084f0",
+  "generated": "2026-10-19",
   "datasets": [
     "adamson",
     "norman",
@@ -25,7 +25,7 @@
     1,
     2
   ],
-  "n_score_rows": 6121,
+  "n_score_rows": 6346,
   "runs": [
     {
       "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
@@ -106,19 +106,20 @@
         "scfoundation"
       ],
       "seeds": [
-        1
+        1,
+        2
       ],
-      "note": "scFoundation (forked GEARS 0.0.2 + 0.1B maeautobin encoder, frozen) on an RTX PRO 6000 Blackwell, env scfoundation-blackwell (torch 2.7.1+cu128); paper batch 6 / epochs 5, full per-epoch train-set eval kept. torch's MHA fast path disabled (segfaults in eval under torch 2.7.1; fp-level deviation only). Seed 1 only (~81 h). norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat)."
+      "note": "scFoundation (forked GEARS 0.0.2 + 0.1B maeautobin encoder, frozen) on an RTX PRO 6000 Blackwell, env scfoundation-blackwell (torch 2.7.1+cu128); paper batch 6 / epochs 5, full per-epoch train-set eval kept. torch's MHA fast path disabled (segfaults in eval under torch 2.7.1; fp-level deviation only). Seeds 1 and 2 (~81 h each; seed 2 restarted once after an instance reboot). norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat)."
     }
   ],
   "files": {
     "scores.parquet": {
-      "bytes": 173181,
-      "md5": "89d53343beb3e5fa4b4dacb07f4c9b00"
+      "bytes": 179891,
+      "md5": "c33c49c836819e9005b7af1c71a07f88"
     },
     "scatter.parquet": {
-      "bytes": 1755015,
-      "md5": "1e9917b89377a1e4e398e1aa9f049c89"
+      "bytes": 1800372,
+      "md5": "99ddc039e11d8094e357e18631fb7383"
     },
     "reference/published_single.csv": {
       "bytes": 728605,
