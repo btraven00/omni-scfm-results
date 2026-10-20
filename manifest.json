@@ -1,7 +1,7 @@
 {
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
-  "benchmark_commit": "10c72b9ac9e6fcf4f098cca5f4e2c46d366084f0",
+  "benchmark_commit": "b0e8939dae40d004eb834f857917d46cd89da308",
   "generated": "2026-10-20",
   "datasets": [
     "adamson",
@@ -19,6 +19,7 @@
     "mean",
     "scbert",
     "scfoundation",
+    "scgpt",
     "uce",
     "uce33"
   ],
@@ -26,7 +27,7 @@
     1,
     2
   ],
-  "n_score_rows": 6942,
+  "n_score_rows": 7392,
   "runs": [
     {
       "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
@@ -113,16 +114,31 @@
         2
       ],
       "note": "scFoundation (forked GEARS 0.0.2 + 0.1B maeautobin encoder, frozen) on an RTX PRO 6000 Blackwell, env scfoundation-blackwell (torch 2.7.1+cu128); paper batch 6 / epochs 5, full per-epoch train-set eval kept. torch's MHA fast path disabled (segfaults in eval under torch 2.7.1; fp-level deviation only). Seeds 1 and 2 (~81 h each; seed 2 restarted once after an instance reboot). norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat). scBERT (panglao_pretrain, mirrored HF btraven/scbert-panglao-pretrain, sha256-pinned; paper finetune_modified.py, 100-epoch cap with PATIENCE=10 early stop) on the same box, env scbert-blackwell (torch 2.7.1+cu128); seeds 1 and 2 on both datasets (nfs s2 restarted once after an instance reboot)."
+    },
+    {
+      "run_id": "c06ceffa-cbad-4c12-a679-f97760d91dd9",
+      "benchmark_commit": "c967e5bc07fc3950ad7342f8adc7224b070443aa",
+      "datasets": [
+        "norman_from_scfoundation"
+      ],
+      "methods": [
+        "scgpt"
+      ],
+      "seeds": [
+        1,
+        2
+      ],
+      "note": "scGPT (scGPT_human, scgpt 0.2.1 + flash-attn 1.0.4, torch 1.13.1 cu117; paper run_scgpt.py, batch 64 / 15 epochs / early stop 5) on roland L4 24GB (slurm 7572, ~7.5 h/seed); predict() DataLoader batch 16 via OMNI_SCGPT_PRED_BATCH (inference only). Outputs placed into the OB tree at the plan path and collected on the Blackwell box. norman_from_scfoundation uses this benchmark split, which differs from the paper (known scf_split caveat); shared test perts correlate with the paper per perturbation (r 0.99 / 0.97)."
     }
   ],
   "files": {
     "scores.parquet": {
-      "bytes": 197744,
-      "md5": "4a10ee1feb365a56023cc7fd10335e1e"
+      "bytes": 210848,
+      "md5": "efd0b5f007a942032c6443ef8f9e6049"
     },
     "scatter.parquet": {
-      "bytes": 1855590,
-      "md5": "77ed7cd44ec1304858807a7ccdb512a0"
+      "bytes": 1944823,
+      "md5": "d26ad329a7fccd3b97fbf273cd7ab47e"
     },
     "reference/published_single.csv": {
       "bytes": 728605,
