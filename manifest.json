@@ -112,7 +112,7 @@
         1,
         2
       ],
-      "note": "scFoundation (forked GEARS 0.0.2 + 0.1B maeautobin encoder, frozen) on an RTX PRO 6000 Blackwell, env scfoundation-blackwell (torch 2.7.1+cu128); paper batch 6 / epochs 5, full per-epoch train-set eval kept. torch's MHA fast path disabled (segfaults in eval under torch 2.7.1; fp-level deviation only). Seeds 1 and 2 (~81 h each; seed 2 restarted once after an instance reboot). norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat)."
+      "note": "scFoundation (forked GEARS 0.0.2 + 0.1B maeautobin encoder, frozen) on an RTX PRO 6000 Blackwell, env scfoundation-blackwell (torch 2.7.1+cu128); paper batch 6 / epochs 5, full per-epoch train-set eval kept. torch's MHA fast path disabled (segfaults in eval under torch 2.7.1; fp-level deviation only). Seeds 1 and 2 (~81 h each; seed 2 restarted once after an instance reboot). norman_from_scfoundation uses this benchmark's split, which differs from the paper's (known scf_split caveat). scBERT (panglao_pretrain, mirrored HF btraven/scbert-panglao-pretrain, sha256-pinned; paper finetune_modified.py, 100-epoch cap with PATIENCE=10 early stop) on the same box, env scbert-blackwell (torch 2.7.1+cu128); seeds 1 and 2 on both datasets (nfs s2 restarted once after an instance reboot)."
     }
   ],
   "files": {
