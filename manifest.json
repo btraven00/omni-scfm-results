@@ -1,8 +1,8 @@
 {
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
-  "benchmark_commit": "b0e8939dae40d004eb834f857917d46cd89da308",
-  "generated": "2026-10-20",
+  "benchmark_commit": "449544739803e0ce3a15e843434040e37cf02089",
+  "generated": "2026-11-06",
   "datasets": [
     "adamson",
     "norman",
@@ -25,9 +25,12 @@
   ],
   "seeds": [
     1,
-    2
+    2,
+    3,
+    4,
+    5
   ],
-  "n_score_rows": 7392,
+  "n_score_rows": 9867,
   "runs": [
     {
       "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
@@ -129,16 +132,35 @@
         2
       ],
       "note": "scGPT (scGPT_human, scgpt 0.2.1 + flash-attn 1.0.4, torch 1.13.1 cu117; paper run_scgpt.py, batch 64 / 15 epochs / early stop 5) on roland L4 24GB (slurm 7572, ~7.5 h/seed); predict() DataLoader batch 16 via OMNI_SCGPT_PRED_BATCH (inference only). Outputs placed into the OB tree at the plan path and collected on the Blackwell box. norman_from_scfoundation uses this benchmark split, which differs from the paper (known scf_split caveat); shared test perts correlate with the paper per perturbation (r 0.99 / 0.97)."
+    },
+    {
+      "run_id": "c06ceffa-cbad-4c12-a679-f97760d91dd9.b0e8939",
+      "benchmark_commit": "b0e8939dae40d004eb834f857917d46cd89da308",
+      "datasets": [
+        "norman_from_scfoundation"
+      ],
+      "methods": [
+        "scbert",
+        "scfoundation",
+        "uce",
+        "uce33"
+      ],
+      "seeds": [
+        3,
+        4,
+        5
+      ],
+      "note": "Seeds 3-5 on norman_from_scfoundation (RTX PRO 6000 Blackwell box): scbert/uce/uce33 s3-5, scfoundation s4-5. Same box out/ dir as run c06ceffa but code b0e8939, hence the suffixed id. scfoundation s3 was OOM-killed (container memory limit) and geneformer s3-5 failed on a wandb auto-login regression (fixed in 4495447); both pending rerun."
     }
   ],
   "files": {
     "scores.parquet": {
-      "bytes": 210848,
-      "md5": "efd0b5f007a942032c6443ef8f9e6049"
+      "bytes": 286570,
+      "md5": "a164c16d5a8a99b0b7be96b96c381674"
     },
     "scatter.parquet": {
-      "bytes": 1944823,
-      "md5": "d26ad329a7fccd3b97fbf273cd7ab47e"
+      "bytes": 2394309,
+      "md5": "a854a50d04813199bd908e9dc3a66a93"
     },
     "reference/published_single.csv": {
       "bytes": 728605,
