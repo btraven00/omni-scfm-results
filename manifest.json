@@ -2,7 +2,7 @@
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
   "benchmark_commit": "449544739803e0ce3a15e843434040e37cf02089",
-  "generated": "2026-11-06",
+  "generated": "2026-11-07",
   "datasets": [
     "adamson",
     "norman",
@@ -30,7 +30,7 @@
     4,
     5
   ],
-  "n_score_rows": 9867,
+  "n_score_rows": 10542,
   "runs": [
     {
       "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
@@ -151,16 +151,32 @@
         5
       ],
       "note": "Seeds 3-5 on norman_from_scfoundation (RTX PRO 6000 Blackwell box): scbert/uce/uce33 s3-5, scfoundation s4-5. Same box out/ dir as run c06ceffa but code b0e8939, hence the suffixed id. scfoundation s3 was OOM-killed (container memory limit) and geneformer s3-5 failed on a wandb auto-login regression (fixed in 4495447); both pending rerun."
+    },
+    {
+      "run_id": "c06ceffa-cbad-4c12-a679-f97760d91dd9.4495447",
+      "benchmark_commit": "449544739803e0ce3a15e843434040e37cf02089",
+      "datasets": [
+        "norman_from_scfoundation"
+      ],
+      "methods": [
+        "geneformer"
+      ],
+      "seeds": [
+        3,
+        4,
+        5
+      ],
+      "note": "Geneformer seeds 3-5 on norman_from_scfoundation (RTX PRO 6000 Blackwell box), rerun on 4495447 after the wandb auto-login crash; W&B tracking on. Same box out/ dir as run c06ceffa, hence the suffixed id."
     }
   ],
   "files": {
     "scores.parquet": {
-      "bytes": 286570,
-      "md5": "a164c16d5a8a99b0b7be96b96c381674"
+      "bytes": 306384,
+      "md5": "3926588bb648341bdc94111efb7d7e45"
     },
     "scatter.parquet": {
-      "bytes": 2394309,
-      "md5": "a854a50d04813199bd908e9dc3a66a93"
+      "bytes": 2582597,
+      "md5": "946c4f5d536c16f67d738bb37bff95a9"
     },
     "reference/published_single.csv": {
       "bytes": 728605,
