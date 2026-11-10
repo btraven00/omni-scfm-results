@@ -1,8 +1,8 @@
 {
   "benchmark": "omni-scfm",
   "benchmark_repo": "https://github.com/btraven00/omni-scfm",
-  "benchmark_commit": "449544739803e0ce3a15e843434040e37cf02089",
-  "generated": "2026-11-07",
+  "benchmark_commit": "3d219cd6a77f97f5e0db30e1b7d3c40eb48a23bd",
+  "generated": "2026-11-10",
   "datasets": [
     "adamson",
     "norman",
@@ -30,7 +30,7 @@
     4,
     5
   ],
-  "n_score_rows": 10542,
+  "n_score_rows": 10767,
   "runs": [
     {
       "run_id": "48738647-c7e6-4db1-bc59-09db3f5586b7",
@@ -159,24 +159,25 @@
         "norman_from_scfoundation"
       ],
       "methods": [
-        "geneformer"
+        "geneformer",
+        "scfoundation"
       ],
       "seeds": [
         3,
         4,
         5
       ],
-      "note": "Geneformer seeds 3-5 on norman_from_scfoundation (RTX PRO 6000 Blackwell box), rerun on 4495447 after the wandb auto-login crash; W&B tracking on. Same box out/ dir as run c06ceffa, hence the suffixed id."
+      "note": "Geneformer seeds 3-5 and scFoundation seed 3 on norman_from_scfoundation (RTX PRO 6000 Blackwell box), rerun on 4495447: geneformer after the wandb auto-login crash, scfoundation s3 after the container OOM kill (batch 6 / 5 epochs, ~82 h); W&B tracking on. Same box out/ dir as run c06ceffa, hence the suffixed id."
     }
   ],
   "files": {
     "scores.parquet": {
-      "bytes": 306384,
-      "md5": "3926588bb648341bdc94111efb7d7e45"
+      "bytes": 312974,
+      "md5": "00d4df9036cd693ed415765d23c05e8d"
     },
     "scatter.parquet": {
-      "bytes": 2582597,
-      "md5": "946c4f5d536c16f67d738bb37bff95a9"
+      "bytes": 2631840,
+      "md5": "807078e490d70a1fcb87f6a881898943"
     },
     "reference/published_single.csv": {
       "bytes": 728605,
